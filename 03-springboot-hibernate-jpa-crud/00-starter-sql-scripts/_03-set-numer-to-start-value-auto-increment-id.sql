@@ -1,0 +1,1 @@
+ALTER TABLE students_traker.student AUTO_INCREMENT=3000;
