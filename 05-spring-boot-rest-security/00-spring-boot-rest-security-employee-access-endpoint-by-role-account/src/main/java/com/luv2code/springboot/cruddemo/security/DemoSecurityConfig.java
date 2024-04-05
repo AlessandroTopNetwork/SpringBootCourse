@@ -41,7 +41,7 @@ public class DemoSecurityConfig {
 	}
 	
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { // add check role of user login to access the many endpoint
 		
 		http.authorizeHttpRequests(configurer ->
 				configurer
