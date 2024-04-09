@@ -26,7 +26,9 @@ CREATE TABLE IF NOT EXISTS `course_student` (
     `student_id` bigint,
     PRIMARY KEY(`course_id`, `student_id`),
     CONSTRAINT fk_course_05
-    FOREIGN KEY (course_id) REFERENCES course(id_course),
+    FOREIGN KEY (course_id) REFERENCES course(id_course)
+    on delete no action on update no action,
     CONSTRAINT fk_student_05
     FOREIGN KEY (student_id) REFERENCES student(id_student)
+    on delete no action on update no action
 );
