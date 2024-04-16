@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <link rel="stylesheet" th:href="@{/css/css_test.css}"/>
 </head>
 <body>
-    <p th:text="'time on the server is ' + ${theDate}"/>
+    <p th:text="'time on the server is ' + ${theDate}" class="test_color"/>
 </body>
 </html>
