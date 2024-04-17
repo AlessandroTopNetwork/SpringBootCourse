@@ -9,6 +9,6 @@ import lombok.ToString;
 @ToString
 public class Student {
 	
-	private String name, surName, age;
+	private String name, surName, age, favoriteLanguage,country;
 
 }

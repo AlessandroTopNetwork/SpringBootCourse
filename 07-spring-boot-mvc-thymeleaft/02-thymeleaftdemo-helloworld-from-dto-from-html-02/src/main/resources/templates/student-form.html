@@ -31,6 +31,50 @@
         <label for="">Age</label>
         <input type="number" name="age" th:field="*{age}" placeholder="What's your name please . . .">
 
+        <br>
+        <br>
+
+        <label for="">Country : </label>
+
+        <!--<select th:field="*{country}">
+
+            <option value="Italy">Italy</option>
+            <option value="Brazil">Brazil</option>
+            <option value="German">German</option>
+            <option value="Japan">Japan</option>
+
+        </select>--> <!--moked code in html-->
+
+        <select th:field="*{country}"><!--name filed pojo java class-->
+
+            <option th:each="tempCountry : ${countries}" 
+                    th:value="${tempCountry}" 
+                    th:Text="${tempCountry}"/> <!--name filed list seend in model attribut-->
+
+        </select>
+
+        <br>
+        <br>
+
+        <label for="">Favorite programming language</label>
+
+        <!-- in this case non need name attributes of input-->
+        <!--<input type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input> 
+        <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>
+        <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>-->
+        
+        <!--th:field name of field in class java , 
+            th:each $.... name list seend from java , 
+            th:value and text value temp selected-->
+
+        <input type="radio" th:field="*{favoriteLanguage}"
+                            th:each="tempLang : ${languages}"
+                            th:value="${tempLang}"
+                            th:text="${tempLang}"/>
+
+        <br>
+        <br>
+
         <input type="submit" value="seend me first version"/>
     </form>
 </body>

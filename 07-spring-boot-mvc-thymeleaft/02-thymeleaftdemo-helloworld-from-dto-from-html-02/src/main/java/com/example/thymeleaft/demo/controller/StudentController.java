@@ -1,5 +1,8 @@
 package com.example.thymeleaft.demo.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,12 @@ import com.example.thymeleaft.demo.dto.Student;
 @Controller
 public class StudentController {
 	
+	@Value("${countries}")//same name of field in file application.properties
+	List<String> countries; // i think is same to retive list to db
+	
+	@Value("${favorite.Language}")
+	List<String> languages;
+	
 	// new a controller method to show initial html form
 	
 	@GetMapping("/showStudentForm") // requestMapping will be accept any type of request (get,post,put ecc.)
@@ -20,16 +29,18 @@ public class StudentController {
 		
 		model.addAttribute("student", new Student()); // seend empty obj because another ways will be return null obj // name attribute will be match with th:object in the page html
 		
+		model.addAttribute("countries", countries);
+		
+		model.addAttribute("languages", languages);
+		
 		return "student-form";
 	}
 	
 	@PostMapping("/processStudentForm")
-	public String processStudentForm(@ModelAttribute("student") Student student) {
+	public String processStudentForm(@ModelAttribute("student") Student student) { // seend obj to another page (student-confirmation.html)
 		
 		// log the input
 		System.out.println("student : " + student);
-		
-		//
 		
 		return "student-confirmation";
 	}
