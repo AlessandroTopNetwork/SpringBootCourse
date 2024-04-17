@@ -75,6 +75,17 @@
         <br>
         <br>
 
+        <!-- cehckbox -->
+
+        <!--<input type="checkbox" th:field="*{favoriteSystem}" th:value="Linux">Linux</input> 
+        <input type="checkbox" th:field="*{favoriteSystem}" th:value="Windows">WIndows</input>
+        <input type="checkbox" th:field="*{favoriteSystem}" th:value="MacOs">MacOs</input>-->
+
+        <input type="checkbox" th:field="*{favoriteSystem}"
+                            th:each="tempSys : ${systems}"
+                            th:value="${tempSys}"
+                            th:text="${tempSys}"/>
+
         <input type="submit" value="seend me first version"/>
     </form>
 </body>

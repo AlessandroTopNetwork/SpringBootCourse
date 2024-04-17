@@ -17,8 +17,11 @@ public class StudentController {
 	@Value("${countries}")//same name of field in file application.properties
 	List<String> countries; // i think is same to retive list to db
 	
-	@Value("${favorite.Language}")
+	@Value("${favorite.language}")
 	List<String> languages;
+	
+	@Value("${favorite.system}") // name of var in application.properties
+	List<String> systems;
 	
 	// new a controller method to show initial html form
 	
@@ -32,6 +35,8 @@ public class StudentController {
 		model.addAttribute("countries", countries);
 		
 		model.addAttribute("languages", languages);
+		
+		model.addAttribute("systems", systems); // "" name of var to seend in html , and , obj
 		
 		return "student-form";
 	}
