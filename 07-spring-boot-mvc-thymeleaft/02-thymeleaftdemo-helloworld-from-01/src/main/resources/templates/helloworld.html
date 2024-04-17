@@ -8,12 +8,20 @@
 </head>
 
 <body>
+
     <h1>
-        HelloWordl of Spring!
+        HelloWorld of Spring!
     </h1>
+
     <br>
     <br>
-    <p th:text="'Studend name : ' + ${param.studentName}"></p>
+
+    <p th:text="'Studend name : ' + ${param.studentName}"></p> <!-- plus to add paramiter from field java pojo param point name of filed seend from html helloworld-from-->
+
+    <br>
+    <br>
+
+    <p th:text="'the message : ' + ${message}"/>
 </body>
 
 </html>

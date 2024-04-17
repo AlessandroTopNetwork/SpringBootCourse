@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Wolrd - input form</title>
 </head>
+
 <body>
-    <form th:action="@{/processFrom}" method="get">
+    <form th:action="@{/processForm}" method="post">
         <input type="text" name="studentName" placeholder="What's your name please . . .">
 
-        <input type="submit" placeholder="seend me">
+        <button type="submit" > seend me first version </button>
+    </form>
+    <br>
+    <br>
+    <form th:action="@{/processFormVersionTwo}" method="post"> <!-- test get paramiter in java and model it (httpServeltRequest)-->
+        <input type="text" name="studentName" placeholder="What's your name please . . .">
+
+        <button type="submit" > seend me second version </button>
+    </form>
+    <br>
+    <br>
+    <form th:action="@{/processFormVersionThree}" method="post"> <!-- test get paramiter in java and model it (@RequestParam)-->
+        <input type="text" name="studentName" placeholder="What's your name please . . .">
+
+        <button type="submit" >seend me third version</button>
     </form>
 </body>
+
 </html>
