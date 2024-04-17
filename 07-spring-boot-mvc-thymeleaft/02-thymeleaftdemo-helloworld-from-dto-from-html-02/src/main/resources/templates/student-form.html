@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Wolrd - input form</title>
+</head>
+
+<body>
+    <h3>Student Registrazion Form</h3>
+    <br>
+    <br>
+    <!-- th:object is obj seend on call this page in model Attribuite-->
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="post"> 
+        
+        <label for="">Name</label>
+        <!-- in th:filed will be write name of variabile of obj in java class -->
+        <input type="text" name="name" th:field="*{name}" placeholder="What's your name please . . ."> 
+
+        <br>
+        <br>
+
+        <label for="">surName</label>
+         <!-- or th:field="${student.surName}" are equals-->
+        <input type="text" name="surName" th:field="*{surName}" placeholder="What's your name please . . .">
+
+        <br>
+        <br>
+
+        <label for="">Age</label>
+        <input type="number" name="age" th:field="*{age}" placeholder="What's your name please . . .">
+
+        <input type="submit" value="seend me first version"/>
+    </form>
+</body>
+
+</html>
