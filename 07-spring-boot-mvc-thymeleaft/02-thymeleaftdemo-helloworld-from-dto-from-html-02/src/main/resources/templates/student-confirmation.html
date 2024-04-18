@@ -41,6 +41,13 @@
 
     <p th:text="'The Studend favorite system is : ' + ${student.favoriteSystem}"></p> 
 
+    <br>
+    <br>
+
+    <ul>
+        <li th:each="tempSys : ${student.favoriteSystem}" th:text="${tempSys}"/> <!-- crearte list of system seend -->
+    </ul>
+
 </body>
 
 </html>
