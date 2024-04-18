@@ -40,7 +40,8 @@ public class StudentController {
 		// radio button in html
 		model.addAttribute("languages", languages);
 		
-		// 		checkbox in html , if there are many box selections thymelaft embeds them all in the favoriteSystem variable, separate the various values with a comma , example : "Windows,MacOs,Linux0"
+		// checkbox in html , if there are many box selections thymelaft embeds them all in the favoriteSystem variable, separate the various values with a comma , example : "Windows,MacOs,Linux0"
+		// but can add List<String> with field favoriteSystem i try it now 
 		model.addAttribute("systems", systems); // "" name of var to seend in html , and , obj
 		
 		return "student-form";

@@ -17,6 +17,30 @@
     <!-- plus to add paramiter from field java pojo param point name of filed seend from html helloworld-from-->
     <p th:text="'The Studend Confermation is : ' + ${student}"></p> 
     <!-- prim obj like Student(name=name, surName=SUrname, age=12)-->
+
+    
+    <br>
+    <br>
+
+    <p th:text="'The Studend Confermation is : ' + ${student.name} + ' ' + ${student.surName}"></p> <!-- student.nameFiledInJavaClass -->
+
+    
+    <br>
+    <br>
+
+    <p th:text="'The Studend Country is : ' + ${student.country}"></p> 
+
+    <br>
+    <br>
+
+    <p th:text="'The Studend favorite Language is : ' + ${student.favoriteLanguage}"></p> 
+
+    <br>
+    <br>
+
+
+    <p th:text="'The Studend favorite system is : ' + ${student.favoriteSystem}"></p> 
+
 </body>
 
 </html>
