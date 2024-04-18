@@ -32,10 +32,15 @@ public class StudentController {
 		
 		model.addAttribute("student", new Student()); // seend empty obj because another ways will be return null obj // name attribute will be match with th:object in the page html
 		
+		// add list string to seend html student-form.html
+		
+		// drop dwon list in html country
 		model.addAttribute("countries", countries);
 		
+		// radio button in html
 		model.addAttribute("languages", languages);
 		
+		// 		checkbox in html , if there are many box selections thymelaft embeds them all in the favoriteSystem variable, separate the various values with a comma , example : "Windows,MacOs,Linux0"
 		model.addAttribute("systems", systems); // "" name of var to seend in html , and , obj
 		
 		return "student-form";
