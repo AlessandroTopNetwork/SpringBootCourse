@@ -77,18 +77,6 @@
         <br>
         <br>
 
-        <label for="">Your course code (*): </label>
-        <input type="text" th:field="*{courseCode}">
-
-        <!-- show error message (if present) -->
-
-        <span th:if="${#fields.hasErrors('courseCode')}"
-                th:errors="*{courseCode}" 
-                class="error"></span>
-
-        <br>
-        <br>
-
         <input type="submit" value="Test me">
 
     </form>
