@@ -25,13 +25,41 @@
 
         <br>
         <br>
+
         <label for="">Your last Name (*): </label>
         <input type="text" th:field="*{lastName}">
 
         <!-- show error message (if present) -->
 
+        <!-- every field subobject to error need your span check error field -->
+
         <span th:if="${#fields.hasErrors('lastName')}"
                 th:errors="*{lastName}" 
+                class="error"></span>
+
+        <br>
+        <br>
+
+        <label for="">Your code id (*): </label>
+        <input type="number" th:field="*{codeId}"> <!-- force to input accet is number int -->
+
+        <!-- show error message (if present) -->
+
+        <span th:if="${#fields.hasErrors('codeId')}"
+                th:errors="*{codeId}" 
+                class="error"></span>
+
+        <br>
+        <br>
+
+        
+        <label for="">Your postal code (*): </label>
+        <input type="text" th:field="*{postCode}">
+
+        <!-- show error message (if present) -->
+
+        <span th:if="${#fields.hasErrors('postCode')}"
+                th:errors="*{postCode}" 
                 class="error"></span>
 
         <br>
