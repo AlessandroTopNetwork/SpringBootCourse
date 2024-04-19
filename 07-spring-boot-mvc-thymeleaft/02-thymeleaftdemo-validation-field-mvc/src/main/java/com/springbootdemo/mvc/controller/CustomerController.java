@@ -31,6 +31,8 @@ public class CustomerController {
 			BindingResult theBindingResult
 			) {
 		
+		System.out.println("the biding result : " + theBindingResult.toString());
+		
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
 		} else {
