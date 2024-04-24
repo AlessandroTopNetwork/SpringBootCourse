@@ -21,6 +21,12 @@
 
         <hr>
 
+        <a th:href="@{/add-employee}"
+                method="post"
+                class="btn btn-primary">Add employee</a>
+
+        <hr>
+
         <!-- classi da bootstrap per lo stile della tabella -->
         <table class="table table-bodered table-striped">
 
@@ -34,7 +40,7 @@
 
             </thead>
 
-            <tbody class="">
+            <tbody>
                 
                 <!-- tr sta per row della tabella , in questa inseirmeno una temp var che 
                     continne ennessimo elemento della lista di employee inviata dal backend con il nome 

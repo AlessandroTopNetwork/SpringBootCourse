@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <title>Add Employee</title>
+</head>
+<body>
+
+    <h3>Add employee</h3>
+
+    <hr>
+
+    <div>
+        <form th:action="@{/save-employee}" 
+            th:object="employee" 
+            method="post">
+        
+            <br>
+            <br>
+            <label for="">Your Name : </label>
+            <input type="text" th:field="*{firstName}">
+    
+            <br>
+            <br>
+    
+            <label for="">Your last Name (*): </label>
+            <input type="text" th:field="*{lastName}">
+               
+            <br>
+            <br>
+    
+            <label for="">Your Email (*): </label>
+            <input type="text" th:field="*{email}">
+        
+            <br>
+            <br>
+
+            <button type="submit" class="btn btn-primary">Save employee</button>
+        
+        </form>
+    </div>
+    
+</body>
+</html>

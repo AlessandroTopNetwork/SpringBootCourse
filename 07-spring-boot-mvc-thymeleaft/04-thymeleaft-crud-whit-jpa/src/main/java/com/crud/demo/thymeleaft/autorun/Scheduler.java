@@ -27,7 +27,7 @@ public class Scheduler {
 			serverPort = "8080";
 		}
 		
-		String baseUrl = "http://localhost:" + serverPort + "/api";
+		String baseUrl = "http://localhost:" + serverPort;
 
         try {
         	 if (os.contains("win")) {
