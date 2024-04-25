@@ -42,13 +42,16 @@ public class EmployeeController {
 		return "list-employees";
 	}
 	
-	@GetMapping("/add-employee")
-	public String callHtmlFormInsertNewEmployee(Model model) {
-		return "add-employee";
+	@GetMapping("/employees/showFormAddEmployee")
+	public String showFormAddEmployee(Model model) {
+		
+		model.addAttribute("employee", new Employee()); // set empty obj other ways :  Neither BindingResult nor plain target object for bean name 'employee' available as request attribute
+		
+		return "show-form-add-employee";
 	}
 	
 	@PostMapping("/save-employee")
-	public String addEmployee(@RequestBody Employee employee, Model model) {
+	public String addEmployee(@ModelAttribute Employee employee, Model model) {
 		
 		employeeService.save(employee);
 		
