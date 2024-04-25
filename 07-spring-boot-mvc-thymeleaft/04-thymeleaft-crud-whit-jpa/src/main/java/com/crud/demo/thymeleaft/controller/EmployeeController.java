@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.crud.demo.thymeleaft.entity.Employee;
 import com.crud.demo.thymeleaft.service.EmployeeService;
 
 @Controller
-//@RequestMapping(value = "/api")// api thymeleaft
+@RequestMapping(value = "/employees")// api thymeleaft
 public class EmployeeController {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class EmployeeController {
 	
 	// get list employees 
 	
-	@GetMapping("/employees/list") // ommision value work any way
+	@GetMapping("/list") // ommision value work any way
 	public String listEmployees(Model model) {
 		
 		// get all employees from db
@@ -42,10 +42,10 @@ public class EmployeeController {
 		return "list-employees";
 	}
 	
-	@GetMapping("/employees/showFormAddEmployee")
+	@GetMapping("/showFormAddEmployee")
 	public String showFormAddEmployee(Model model) {
 		
-		model.addAttribute("employee", new Employee()); // set empty obj other ways :  Neither BindingResult nor plain target object for bean name 'employee' available as request attribute
+		model.addAttribute("employee", new Employee()); // set empty obj other ways null pointer into html on th:object="${employee}" :  Neither BindingResult nor plain target object for bean name 'employee' available as request attribute
 		
 		return "show-form-add-employee";
 	}
@@ -75,7 +75,7 @@ public class EmployeeController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public String deleteEmployee(Model model, @PathVariable Long id) {
+	public String deleteEmployee(@PathVariable Long id, Model model) {
 		
 		// delete employee
 		employeeService.deleteById(id);

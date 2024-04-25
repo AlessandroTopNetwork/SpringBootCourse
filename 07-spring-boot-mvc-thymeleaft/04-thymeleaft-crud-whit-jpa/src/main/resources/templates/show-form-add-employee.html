@@ -8,12 +8,16 @@
 </head>
 <body>
 
-    <h3>Add employee</h3>
+    <br>
+    <br>
 
-    <hr>
+    <div  class="container">
+    
+        <h3>Add employee</h3>
 
-    <div>
-        <form th:action="@{/save-employee}" 
+        <hr>
+
+        <form th:action="@{/employees/save-employee}" 
             th:object="${employee}" 
             method="post">
         
@@ -27,7 +31,7 @@
     
             <label for="">Your last Name (*): </label>
             <input type="text" th:field="*{lastName}">
-               
+            
             <br>
             <br>
     
@@ -40,6 +44,10 @@
             <button type="submit" class="btn btn-primary">Save employee</button>
         
         </form>
+
+        <a th:href="@{/employees/list}"
+            class="btn btn-primary btn-sm mt-5" style="color: aliceblue;font-size: medium; font-weight: 500;">Return to list employees</a>
+        
     </div>
     
 </body>
