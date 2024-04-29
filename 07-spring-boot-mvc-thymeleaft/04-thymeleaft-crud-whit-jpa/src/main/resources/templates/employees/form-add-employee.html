@@ -20,6 +20,8 @@
         <form th:action="@{/employees/save-employee}" 
             th:object="${employee}" 
             method="post">
+
+            <input type="hidden" name="id" th:value="*{id}">
         
             <br>
             <br>

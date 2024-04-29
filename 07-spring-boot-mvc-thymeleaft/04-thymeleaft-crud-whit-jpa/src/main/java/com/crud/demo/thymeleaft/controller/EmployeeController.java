@@ -83,7 +83,7 @@ public class EmployeeController {
 //	}
 	
 	@GetMapping("/show-form-update")
-	public String showModifyEmployee(@RequestParam("id") Long id, Model model) {
+	public String showFormUpdateEmployee(@RequestParam("id") Long id, Model model) {
 		
 		System.out.println("id employee to update : " + id);
 		
@@ -91,7 +91,7 @@ public class EmployeeController {
 		
 		model.addAttribute("employee", employee);
 		
-		return "employees/show-form-update";
+		return "employees/form-add-employee"; // re-caal form insert but seend obj found on db for update
 	}
 	
 	// delete employee
