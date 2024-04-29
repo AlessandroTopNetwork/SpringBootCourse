@@ -22,12 +22,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
     public Employee findById(Long theId) {
         Optional<Employee> result = employeeRepository.findById(theId);
+//        		.orElseThrow(null) // to try it
 
         Employee theEmployee = null;
 

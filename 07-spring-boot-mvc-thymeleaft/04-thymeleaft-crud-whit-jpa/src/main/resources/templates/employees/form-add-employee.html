@@ -23,27 +23,32 @@
         
             <br>
             <br>
-            <label for="">Your Name : </label>
-            <input type="text" th:field="*{firstName}">
+
+            <!-- th:field name will be macth with name of variable in entity class java -->
+            <input type="text" th:field="*{firstName}" placeholder="Your Name . . ."
+                class="form-control">
     
             <br>
             <br>
-    
-            <label for="">Your last Name (*): </label>
-            <input type="text" th:field="*{lastName}">
+
+            <!-- set th:fiedl to mapping field of object of row 21 (th:object="${employee}") -->
+            <input type="text" th:field="*{lastName}" placeholder="Your last Name . . ."
+                class="form-control">
             
             <br>
             <br>
     
-            <label for="">Your Email (*): </label>
-            <input type="text" th:field="*{email}">
+            <input type="text" th:field="*{email}" placeholder="Your Email . . ."
+                class="form-control">
         
             <br>
             <br>
 
-            <button type="submit" class="btn btn-primary">Save employee</button>
+            <button type="submit" class="btn btn-info ">Save employee</button>
         
         </form>
+
+        <hr>
 
         <a th:href="@{/employees/list}"
             class="btn btn-primary btn-sm mt-5" style="color: aliceblue;font-size: medium; font-weight: 500;">Return to list employees</a>

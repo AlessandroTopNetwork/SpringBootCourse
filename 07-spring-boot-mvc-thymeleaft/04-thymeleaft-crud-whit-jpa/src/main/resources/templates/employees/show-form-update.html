@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <title>Add Employee</title>
+</head>
+<body>
+
+    <br>
+    <br>
+
+    <div  class="container">
+    
+        <h3>Add employee</h3>
+
+        <hr>
+
+        <form th:action="@{/employees/save-employee}" 
+            th:object="${employee}" 
+            method="post">
+        
+            <br>
+            <br>
+
+            <!-- th:field name will be macth with name of variable in entity class java -->
+            <input type="text" th:field="*{firstName}" 
+                class="form-control">
+    
+            <br>
+            <br>
+
+            <!-- set th:fiedl to mapping field of object of row 21 (th:object="${employee}") -->
+            <input type="text" th:field="*{lastName}" 
+                class="form-control">
+            
+            <br>
+            <br>
+    
+            <input type="text" th:field="*{email}" 
+                class="form-control">
+        
+            <br>
+            <br>
+
+            <input type="hidden" name="id" th:value="*{id}">
+
+            <button type="submit" class="btn btn-info ">Update employee</button>
+        
+        </form>
+
+        <hr>
+
+        <a th:href="@{/employees/list}"
+            class="btn btn-primary btn-sm mt-5" style="color: aliceblue;font-size: medium; font-weight: 500;">Return to list employees</a>
+        
+    </div>
+    
+</body>
+</html>
