@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <title>Custom login page for spring security</title>
+
+    <!-- to call class in css by '.' id call by '#' '-->
+    <style>
+        .error{ 
+            color: red;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -33,9 +41,13 @@
 
             <input type="submit" value="login">
 
+            <br>
+            <br>
+
             <!-- check for lgin error-->
             <div th:if="${param.error}">
-                <i style="color: red;">Sorry! You entred invalid username or password.</i>
+                <!-- style in line : style="color: red;" -->
+                <i class="error" >Sorry! You entred invalid username or password.</i>
             </div>
 
         </form>
