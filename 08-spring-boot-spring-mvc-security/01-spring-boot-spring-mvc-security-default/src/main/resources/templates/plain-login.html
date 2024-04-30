@@ -28,8 +28,14 @@
         <br>
         <br>
 
+        <!-- check for logout -->
+        <div class="text-center" th:if="${param.logout}">
+            <i style="color: green;">You have been logged out.</i>
+        </div>
+
         <!-- metdo messo a disposizione da spring boot security setssa noi abbiamo solo fatto una custom della pagina di login-->
-        <form th:action="@{/authenticateTheUser}" method="post">
+        <form class="form-contol" 
+                th:action="@{/authenticateTheUser}" method="post">
 
             <p>
                 <input type="text" name="username" placeholder="your username">
@@ -44,7 +50,7 @@
             <br>
             <br>
 
-            <!-- check for lgin error-->
+            <!-- check for login error-->
             <div th:if="${param.error}">
                 <!-- style in line : style="color: red;" -->
                 <i class="error" >Sorry! You entred invalid username or password.</i>

@@ -54,7 +54,9 @@ public class DemoSecurityConfig {
 						.loginPage("/showMyLoginPage") // page in the dir template to login page call it by endpoint in the controller
 						.loginProcessingUrl("/authenticateTheUser") // payh of method to process authenticate user login form will be free by spring boot
 						.permitAll()
-				);
+				)
+				.logout(logout ->
+						logout.permitAll()); // add support logout
 		return http.build();
 	
 	}
