@@ -11,10 +11,24 @@
 
     <h1>test autorizato</h1>
 
+    <hr>
+
+    <!-- display username and role -->
+
+    <p>
+        <!-- get value of user name e role from spring boot security with sec:authentication="principal. . . . agument-->
+        User : <span sec:authentication="principal.username"></span>
+        <br>
+        <br>
+        Role : <span sec:authentication="principal.authorities"></span>
+    </p>
+
+    <hr>
+
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="logout">
     </form>
-    
+
 </body>
 
 </html>
