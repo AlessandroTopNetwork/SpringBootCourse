@@ -47,6 +47,9 @@ public class DemoSecurityConfig {
 		
 		http.authorizeHttpRequests(configurer ->
 				configurer
+						.requestMatchers("/").hasRole("EMPLOYEE") // indicate who can access at specific path endpoint
+						.requestMatchers("/leaders/**").hasRole("MANAGER") // restricted acces to endpoint "/leaders" and it sub endpoint for only account manager
+						.requestMatchers("/systems/**").hasRole("ADMIN")
 						.anyRequest().authenticated()
 				)
 				.formLogin(form ->

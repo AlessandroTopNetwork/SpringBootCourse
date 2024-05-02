@@ -11,5 +11,18 @@ public class ControllerSecurity {
 	public String home(Model model) {
 		return "home";
 	}
+	
+	// add a request mapping /leaders
+	@GetMapping("/leaders")
+	public String showPageLeaders() {
+		return "/leaders";
+	}
+	
+	// add a request mapping /systems
+	@GetMapping("/systems")
+	public String showPageSystems() {
+		return "/systems";
+	}
 
+	
 }
