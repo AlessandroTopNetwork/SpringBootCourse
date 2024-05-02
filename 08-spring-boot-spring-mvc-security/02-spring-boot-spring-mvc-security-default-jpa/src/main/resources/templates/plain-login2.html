@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form di Login</title>
+    <!-- Collegamento ai file CSS di Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Access to your account</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- check for logout -->
+                        <div class="alert alert-success text-center" th:if="${param.logout}">
+                            <i style="color: green;">You have been logged out.</i>
+                        </div>
+
+                        <form th:action="@{/authenticateTheUser}" method="post">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control" placeholder="Inserisci il tuo username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Inserisci la tua password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Accedi</button>
+                        </form>
+                    </div>
+                    <!-- check for login error-->
+                    <div class="text-center" th:if="${param.error}">
+                        <!-- style in line : style="color: red;" -->
+                        <i class="error">Sorry! You entred invalid username or password.</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collegamento ai file JavaScript di Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

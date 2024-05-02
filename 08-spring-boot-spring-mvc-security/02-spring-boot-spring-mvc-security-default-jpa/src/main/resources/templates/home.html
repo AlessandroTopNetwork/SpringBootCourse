@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Test spring security</title>
+</head>
+
+<body>
+
+    <div class="container text-center">
+
+        <h1>test autorizato</h1>
+
+        <hr>
+
+        <!-- display username and role -->
+
+        <p>
+            <!-- get value of user name e role from spring boot security with sec:authentication="principal. . . . agument-->
+            User : <span sec:authentication="principal.username"></span>
+            <br>
+            <br>
+            Role : <span sec:authentication="principal.authorities"></span>
+        </p>
+
+        <hr>
+
+        <p>
+
+        <!-- show this link only for account manager -->
+        <div sec:authorize="hasRole('MANAGER')">
+            <a th:href="@{/leaders}">Leadership/Manager Meeting</a>
+            <label>(only for Manager Account)</label>
+        </div>
+
+        <br>
+
+        <!-- show this link only for account Admin -->
+        <div sec:authorize="hasRole('ADMIN')">
+            <a th:href="@{/systems}">Systems/Admin Meeting</a>
+            <label>(only for Admin Account)</label>
+        </div>
+
+        </p>
+
+        <hr>
+
+        <!-- to code java just add logout permitedAll into filterChain method in class DemoSecurityConfig -->
+        <form th:action="@{/logout}" method="post">
+            <input class="btn btn-secondary" type="submit" value="logout">
+        </form>
+    </div>
+</body>
+
+</html>
