@@ -48,7 +48,7 @@ public class DemoSecurityConfig {
 		http.authorizeHttpRequests(configurer ->
 				configurer
 						.requestMatchers("/").hasRole("EMPLOYEE") // indicate who can access at specific path endpoint
-						.requestMatchers("/leaders/**").hasRole("MANAGER") // restricted acces to endpoint "/leaders" and it sub endpoint for only account manager
+						.requestMatchers("/leaders/**").hasRole("MANAGER") // restricted access to endpoint "/leaders" and it sub endpoint for only account manager
 						.requestMatchers("/systems/**").hasRole("ADMIN")
 						.anyRequest().authenticated()
 				)
@@ -59,9 +59,13 @@ public class DemoSecurityConfig {
 						.permitAll()
 				)
 				.logout(logout ->
-						logout.permitAll()); // add support logout
+						logout.permitAll())// add support logout
+				// add custom page access denied for account x
+				.exceptionHandling(configurer -> 
+						configurer.accessDeniedPage("/access-denied")); 
 		return http.build();
 	
+		
 	}
 
 }
