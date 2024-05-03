@@ -10,13 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class AppDAOImpl implements AppDAO {
 
     // define field for entity manager
+	@Autowired
     private EntityManager entityManager;
 
     // inject entity manager using constructor injection
-    @Autowired
-    public AppDAOImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+//    @Autowired
+//    public AppDAOImpl(EntityManager entityManager) {
+//        this.entityManager = entityManager;
+//    }
 
     @Override
     @Transactional

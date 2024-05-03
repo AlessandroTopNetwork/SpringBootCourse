@@ -17,7 +17,7 @@ public class AndavcedApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
+	public CommandLineRunner commandLineRunner(AppDAO appDAO) { // auto inject by spring boot
 
 		return runner -> {
 			createInstructor(appDAO);
@@ -29,23 +29,23 @@ public class AndavcedApplication {
 		/*
 		// create the instructor
 		Instructor tempInstructor =
-				new Instructor("Chad", "Darby", "darby@luv2code.com");
+				new Instructor("Chad", "Darby", "darby@luv3code.com");
 
 		// create the instructor detail
 		InstructorDetail tempInstructorDetail =
 				new InstructorDetail(
-						"http://www.luv2code.com/youtube",
-						"Luv 2 code!!!");
+						"http://www.luv3code.com/youtube",
+						"Luv 3 code!!!");
 		*/
 
 		// create the instructor
 		Instructor tempInstructor =
-				new Instructor("Madhu2", "Patel", "madhu@luv2code2.com");
+				new Instructor("Madhu3", "Patel", "madhu@luv3code3.com");
 
 		// create the instructor detail
 		InstructorDetail tempInstructorDetail =
 				new InstructorDetail(
-						"http://www.luv2code.com/youtube2",
+						"http://www.luv3code.com/youtube3",
 						"Car");
 
 		// associate the objects

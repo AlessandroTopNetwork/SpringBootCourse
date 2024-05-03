@@ -47,7 +47,7 @@ public class Instructor {
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "instructor_detail_id")
+    @JoinColumn(name = "instructor_detail_id") // column on this table whit costrain to table entity InstructorDetail
     private InstructorDetail instructorDetail;
 
 //    public Instructor() {
