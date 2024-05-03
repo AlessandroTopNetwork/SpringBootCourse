@@ -41,7 +41,8 @@ public class InstructorDetail {
     @Column(name="hobby")
     private String hobby;
     
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL) // mapped by name of varibale into class entity Instructor
+    // cascade all whitout remove/delete
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) // mapped by name of varibale into class entity Instructor
     private Instructor instructor;
 
     public InstructorDetail() {} // use to retrive data by query

@@ -108,7 +108,7 @@ public class AndavcedApplication {
 	
 	private void deleteInstructorDetail(AppDAO appDAO) {
 
-		int theId = 12;
+		int theId = 2;
 		System.out.println("Delete instructorDetail id: " + theId);
 
 		appDAO.delteInstructorDetailById(theId);
@@ -127,7 +127,7 @@ public class AndavcedApplication {
 						"http://www.luv3code.com/youtube3Detail",
 						"CarDetail", tempInstructor);
 		
-		tempInstructor.setInstructorDetail(tempInstructorDetail); // referencies obj fro not lost obj
+		tempInstructor.setInstructorDetail(tempInstructorDetail); // referencies obj for not lost obj
 
 		// associate the objects
 		tempInstructorDetail.setInstructor(tempInstructor);

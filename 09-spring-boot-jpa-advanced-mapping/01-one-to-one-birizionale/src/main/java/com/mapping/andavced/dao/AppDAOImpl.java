@@ -58,6 +58,12 @@ public class AppDAOImpl implements AppDAO {
 	public void delteInstructorDetailById(int theId) {
 		InstructorDetail istructorDetail = findInstructorDetailById(theId);
 		
+		// delet associate istructor because you not can dele only istructor detail
+		
+		istructorDetail.getInstructor().setInstructorDetail(null); // remove associated id
+		
+		// lunch update before delte on obj associated
+		
 		entityManager.remove(istructorDetail);
 		
 	}
