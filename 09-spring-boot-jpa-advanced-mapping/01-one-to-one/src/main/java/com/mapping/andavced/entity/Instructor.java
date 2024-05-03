@@ -50,9 +50,7 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id") // column on this table whit costrain to table entity InstructorDetail
     private InstructorDetail instructorDetail;
 
-//    public Instructor() {
-//
-//    }
+    public Instructor() {} // use to retrive data by query
 
     public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;

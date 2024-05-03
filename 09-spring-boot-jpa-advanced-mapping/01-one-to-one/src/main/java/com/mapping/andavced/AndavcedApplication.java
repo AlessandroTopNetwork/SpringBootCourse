@@ -20,7 +20,8 @@ public class AndavcedApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) { // auto inject by spring boot
 
 		return runner -> {
-			createInstructor(appDAO);
+//			createInstructor(appDAO);
+			findInstructor(appDAO);
 		};
 	}
 
@@ -60,6 +61,18 @@ public class AndavcedApplication {
 		appDAO.save(tempInstructor);
 
 		System.out.println("Done!");
+	}
+	
+	private void findInstructor(AppDAO appDAO) {
+
+		int theId = 2;
+		System.out.println("Finding instructor id: " + theId);
+
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+		System.out.println("tempInstructor: " + tempInstructor);
+		System.out.println("the associated instructorDetail only: " + tempInstructor.getInstructorDetail());
+
 	}
 
 }
