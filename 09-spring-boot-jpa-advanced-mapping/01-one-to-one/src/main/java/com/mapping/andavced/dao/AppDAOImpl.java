@@ -1,7 +1,5 @@
 package com.mapping.andavced.dao;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mapping.andavced.entity.Instructor;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 
 @Repository
 public class AppDAOImpl implements AppDAO {
@@ -37,16 +34,9 @@ public class AppDAOImpl implements AppDAO {
     
 	@Override
 	@Transactional
-	public List<Instructor> delteInstructorById(int theId) {
+	public void delteInstructorById(int theId) {
 		Instructor i = findInstructorById(theId);
 		entityManager.remove(i);
-		return findAll();
-	}
-
-	@Override
-	public List<Instructor> findAll() {
-//		Query q = entityManager.createQuery("SELECT id , first_name, last_name, email FROM instructor", Instructor.class);
-		return null;
 	}
     
 }

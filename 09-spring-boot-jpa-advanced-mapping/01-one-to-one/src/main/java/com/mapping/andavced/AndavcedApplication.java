@@ -80,12 +80,10 @@ public class AndavcedApplication {
 	
 	private void delteInstructor(AppDAO appDAO) {
 
-		int theId = 2;
+		int theId = 3;
 		System.out.println("Delete instructor id: " + theId);
 
-		List<Instructor> listInstructor = appDAO.delteInstructorById(theId);
-
-		System.out.println("Instructors: " + listInstructor);
+		appDAO.delteInstructorById(theId);
 
 	}
 

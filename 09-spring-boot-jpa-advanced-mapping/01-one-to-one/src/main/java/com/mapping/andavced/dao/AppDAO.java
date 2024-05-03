@@ -1,7 +1,5 @@
 package com.mapping.andavced.dao;
 
-import java.util.List;
-
 import com.mapping.andavced.entity.Instructor;
 
 public interface AppDAO {
@@ -10,8 +8,6 @@ public interface AppDAO {
     
     Instructor findInstructorById(int theId);
     
-    List<Instructor> delteInstructorById(int theId);
+    void delteInstructorById(int theId);
     
-    List<Instructor> findAll();
-
 }
