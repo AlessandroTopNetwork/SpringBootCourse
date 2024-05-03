@@ -46,7 +46,7 @@ public class Instructor {
     @Column(name="email")
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL) // save delte and update will be Impacts to table costrain -> InstructorDetail
     @JoinColumn(name = "instructor_detail_id") // column on this table whit costrain to table entity InstructorDetail
     private InstructorDetail instructorDetail;
 
