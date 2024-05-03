@@ -40,13 +40,13 @@ public class AndavcedApplication {
 
 		// create the instructor
 		Instructor tempInstructor =
-				new Instructor("MadhuTEst", "Patel", "madhu@luv2code.com");
+				new Instructor("Madhu2", "Patel", "madhu@luv2code2.com");
 
 		// create the instructor detail
 		InstructorDetail tempInstructorDetail =
 				new InstructorDetail(
-						"http://www.luv2code.com/youtubeTEst",
-						"Guitar");
+						"http://www.luv2code.com/youtube2",
+						"Car");
 
 		// associate the objects
 		tempInstructor.setInstructorDetail(tempInstructorDetail);
