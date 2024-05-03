@@ -1,20 +1,21 @@
-package com.luv2code.cruddemo;
+package com.mapping.andavced;
 
-import com.luv2code.cruddemo.dao.AppDAO;
-import com.luv2code.cruddemo.entity.Instructor;
-import com.luv2code.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.mapping.andavced.dao.AppDAO;
+import com.mapping.andavced.entity.Instructor;
+import com.mapping.andavced.entity.InstructorDetail;
+
 @SpringBootApplication
-public class CruddemoApplication {
+public class AndavcedApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CruddemoApplication.class, args);
+		SpringApplication.run(AndavcedApplication.class, args);
 	}
-
+	
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 
@@ -39,12 +40,12 @@ public class CruddemoApplication {
 
 		// create the instructor
 		Instructor tempInstructor =
-				new Instructor("Madhu", "Patel", "madhu@luv2code.com");
+				new Instructor("MadhuTEst", "Patel", "madhu@luv2code.com");
 
 		// create the instructor detail
 		InstructorDetail tempInstructorDetail =
 				new InstructorDetail(
-						"http://www.luv2code.com/youtube",
+						"http://www.luv2code.com/youtubeTEst",
 						"Guitar");
 
 		// associate the objects
@@ -60,12 +61,5 @@ public class CruddemoApplication {
 
 		System.out.println("Done!");
 	}
+
 }
-
-
-
-
-
-
-
-

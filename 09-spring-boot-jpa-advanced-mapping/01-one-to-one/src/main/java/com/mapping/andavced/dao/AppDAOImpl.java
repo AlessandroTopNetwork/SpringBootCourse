@@ -1,6 +1,6 @@
-package com.luv2code.cruddemo.dao;
+package com.mapping.andavced.dao;
 
-import com.luv2code.cruddemo.entity.Instructor;
+import com.mapping.andavced.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
