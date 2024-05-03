@@ -1,5 +1,7 @@
 package com.mapping.andavced;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +23,8 @@ public class AndavcedApplication {
 
 		return runner -> {
 //			createInstructor(appDAO);
-			findInstructor(appDAO);
+//			findInstructor(appDAO);
+			delteInstructor(appDAO);
 		};
 	}
 
@@ -72,6 +75,17 @@ public class AndavcedApplication {
 
 		System.out.println("tempInstructor: " + tempInstructor);
 		System.out.println("the associated instructorDetail only: " + tempInstructor.getInstructorDetail());
+
+	}
+	
+	private void delteInstructor(AppDAO appDAO) {
+
+		int theId = 2;
+		System.out.println("Delete instructor id: " + theId);
+
+		List<Instructor> listInstructor = appDAO.delteInstructorById(theId);
+
+		System.out.println("Instructors: " + listInstructor);
 
 	}
 
