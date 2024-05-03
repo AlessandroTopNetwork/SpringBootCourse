@@ -41,7 +41,7 @@ public class InstructorDetail {
     @Column(name="hobby")
     private String hobby;
     
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL) // smapped by name of varibale into class entity Instructor
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL) // mapped by name of varibale into class entity Instructor
     private Instructor instructor;
 
     public InstructorDetail() {} // use to retrive data by query
@@ -49,6 +49,12 @@ public class InstructorDetail {
     public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;
+    }
+    
+    public InstructorDetail(String youtubeChannel, String hobby, Instructor instructor) {
+        this.youtubeChannel = youtubeChannel;
+        this.hobby = hobby;
+        this.instructor = instructor;
     }
 
 }

@@ -11,6 +11,12 @@ public interface AppDAO {
     
     void delteInstructorById(int theId);
     
+    // detail table
+    
+    void save(InstructorDetail theInstructorDetail);
+    
+    void delteInstructorDetailById(int theId);
+    
     InstructorDetail findInstructorDetailById(int theId);
     
 }

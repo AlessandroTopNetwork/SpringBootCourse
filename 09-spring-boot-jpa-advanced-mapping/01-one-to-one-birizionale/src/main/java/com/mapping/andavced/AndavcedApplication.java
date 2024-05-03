@@ -20,10 +20,13 @@ public class AndavcedApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) { // auto inject by spring boot
 
 		return runner -> {
-			createInstructor(appDAO);
+//			createInstructor(appDAO);
 //			findInstructor(appDAO);
 //			delteInstructor(appDAO);
-			findInstructorDetail(appDAO);
+			// detail
+//			findInstructorDetail(appDAO);
+//			createInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
 		};
 	}
 
@@ -77,7 +80,7 @@ public class AndavcedApplication {
 
 	}
 	
-	private void delteInstructor(AppDAO appDAO) {
+	private void deleteInstructor(AppDAO appDAO) {
 
 		int theId = 3;
 		System.out.println("Delete instructor id: " + theId);
@@ -85,6 +88,8 @@ public class AndavcedApplication {
 		appDAO.delteInstructorById(theId);
 
 	}
+	
+	// istrructorDetail 
 	
 	private void findInstructorDetail(AppDAO appDAO) {
 
@@ -97,6 +102,43 @@ public class AndavcedApplication {
 
 		// print the associated instructor
 		System.out.println("the associated instructor: " + tempInstructorDetail.getInstructor());
+
+		System.out.println("Done!");
+	}
+	
+	private void deleteInstructorDetail(AppDAO appDAO) {
+
+		int theId = 12;
+		System.out.println("Delete instructorDetail id: " + theId);
+
+		appDAO.delteInstructorDetailById(theId);
+
+	}
+	
+	private void createInstructorDetail(AppDAO appDAO) {
+
+		// create the instructor
+		Instructor tempInstructor =
+				new Instructor("Madhu3Detail", "Patel", "madhu@luv3code3.com");
+		
+		// create the instructor detail
+		InstructorDetail tempInstructorDetail =
+				new InstructorDetail(
+						"http://www.luv3code.com/youtube3Detail",
+						"CarDetail", tempInstructor);
+		
+		tempInstructor.setInstructorDetail(tempInstructorDetail); // referencies obj fro not lost obj
+
+		// associate the objects
+		tempInstructorDetail.setInstructor(tempInstructor);
+
+		// save the instructor
+		//
+		// NOTE: this will ALSO save the details object
+		// because of CascadeType.ALL
+		//
+		System.out.println("Saving instructorDetail: " + tempInstructor);
+		appDAO.save(tempInstructorDetail);
 
 		System.out.println("Done!");
 	}
