@@ -98,6 +98,20 @@ public class AppDAOImpl implements AppDAO {
 	public void update(Instructor instructor) {
 		entityManager.merge(instructor); // update in case id is popolated , insert if id is null or 0
 	}
+
+	@Override
+	public Course findCourse(int theIdCourse) {
+		// TODO Auto-generated method stub
+		return entityManager.find(Course.class, theIdCourse);
+	}
+	
+	@Override
+	@Transactional
+	public void updateCourse(Course course) {
+		entityManager.merge(course); // update in case id is popolated , insert if id is null or 0
+	}
+
+
 }
 
 

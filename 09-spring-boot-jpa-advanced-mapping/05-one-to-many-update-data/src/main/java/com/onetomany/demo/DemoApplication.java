@@ -50,7 +50,7 @@ public class DemoApplication {
 			
 //			findInstructorWithCoursesFetchTypeIntoQueryCustom(appDAO);
 			
-			update(appDAO);
+			updateCourse(appDAO);
 		};
 	}
 
@@ -127,9 +127,41 @@ public class DemoApplication {
 		
 		System.out.println("start update instructor number : " + instructor.getId());
 		
-		instructor.setLastName("test");
+		instructor.setLastName("test01");
 		
 		appDAO.update(instructor);
+		
+		System.out.println("Done!");
+		
+	}
+	
+	private void updateCourseAle(AppDAO appDAO) { // work
+		
+		int id = 1;
+		
+		Instructor instructor = appDAO.findInstructorByIdFetchJoin(id);
+		
+		System.out.println("start update instructor course number : " + instructor.getCourses().size());
+		
+		instructor.getCourses().get(instructor.getCourses().size() -1).setTitle("testaiamo ultimo corso");
+		
+		appDAO.update(instructor);
+		
+		System.out.println("Done!");
+		
+	}
+	
+	private void updateCourse(AppDAO appDAO) { // work
+		
+		int id = 11;
+		
+		Course course = appDAO.findCourse(id);
+		
+		System.out.println("start update instructor course number : " +id);
+		
+		course.setTitle("testaiamo ultimo corso id 11");
+		
+		appDAO.updateCourse(course);
 		
 		System.out.println("Done!");
 		
