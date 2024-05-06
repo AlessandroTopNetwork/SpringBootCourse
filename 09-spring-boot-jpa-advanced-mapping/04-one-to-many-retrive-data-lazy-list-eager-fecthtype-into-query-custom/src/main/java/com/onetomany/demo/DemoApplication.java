@@ -110,6 +110,8 @@ public class DemoApplication {
 
 		Instructor tempInstructor = appDAO.findInstructorByIdFetchJoin(theId);
 		
+		System.out.println("tempInstructor: " + tempInstructor);
+		
 		System.out.println("the associated courses: " + tempInstructor.getCourses());
 
 		System.out.println("Done!");
