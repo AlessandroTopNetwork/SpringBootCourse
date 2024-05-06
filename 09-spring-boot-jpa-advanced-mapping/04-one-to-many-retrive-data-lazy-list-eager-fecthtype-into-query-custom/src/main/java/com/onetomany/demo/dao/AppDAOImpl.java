@@ -84,6 +84,7 @@ public class AppDAOImpl implements AppDAO {
 		TypedQuery<Instructor>  query = entityManager.createQuery(
 				"select i from Instructor i " // alias instructor is i Instructor same name of class not table
 				+ " join fetch i.courses" // JOIN FETCH to retrieve istructor and it list courses
+				+ " join fetch i.instructorDetail"  // to lunch unce query to retrieve all from once query athor ways spring when call this query whitout join instructor detail after launch anhoter query to retrive instructortDetail relationated
 				+ " where i.id= :data", Instructor.class
 				);
 		
