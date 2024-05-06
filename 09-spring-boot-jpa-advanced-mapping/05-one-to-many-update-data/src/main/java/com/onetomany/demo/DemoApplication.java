@@ -121,11 +121,13 @@ public class DemoApplication {
 	
 	private void update(AppDAO appDAO) {
 		
-		Instructor instructor = new Instructor("test", "test", "test");
+		int id = 1;
 		
-		instructor.setId(0); // set id to update obj into database
+		Instructor instructor = appDAO.findInstructorById(id);
 		
 		System.out.println("start update instructor number : " + instructor.getId());
+		
+		instructor.setLastName("test");
 		
 		appDAO.update(instructor);
 		
