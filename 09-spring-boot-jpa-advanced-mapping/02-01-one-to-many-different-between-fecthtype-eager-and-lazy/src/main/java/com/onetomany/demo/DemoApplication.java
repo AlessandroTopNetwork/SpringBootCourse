@@ -12,6 +12,19 @@ import com.onetomany.demo.entity.InstructorDetail;
 
 @SpringBootApplication
 public class DemoApplication {
+	
+	/*
+	 * Default fecth type by relation
+	 * 
+	 * one to one EAGER
+	 * 
+	 * one to may LAZY
+	 * 
+	 * Many to one EAGER
+	 * 
+	 * MANY to many LAZY
+	 * 
+	 * */
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -31,7 +44,9 @@ public class DemoApplication {
 
 			// deleteInstructorDetail(appDAO);
 
-			createInstructorWithCourses(appDAO);
+//			createInstructorWithCourses(appDAO);
+			
+			findInstructorWithCourses(appDAO);
 		};
 	}
 
@@ -69,88 +84,16 @@ public class DemoApplication {
 
 		System.out.println("Done!");
 	}
-
-	private void deleteInstructorDetail(AppDAO appDAO) {
-
-		int theId = 3;
-		System.out.println("Deleting instructor detail id: " + theId);
-
-		appDAO.deleteInstructorDetailById(theId);
-
-		System.out.println("Done!");
-	}
-
-	private void findInstructorDetail(AppDAO appDAO) {
-
-		// get the instructor detail object
-		int theId = 2;
-		InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(theId);
-
-		// print the instructor detail
-		System.out.println("tempInstructorDetail: " + tempInstructorDetail);
-
-		// print the associated instructor
-		System.out.println("the associated instructor: " + tempInstructorDetail.getInstructor());
-
-		System.out.println("Done!");
-	}
-
-	private void deleteInstructor(AppDAO appDAO) {
+	
+	private void findInstructorWithCourses(AppDAO appDAO) {
 
 		int theId = 1;
-		System.out.println("Deleting instructor id: " + theId);
-
-		appDAO.deleteInstructorById(theId);
-
-		System.out.println("Done!");
-	}
-
-	private void findInstructor(AppDAO appDAO) {
-
-		int theId = 2;
 		System.out.println("Finding instructor id: " + theId);
 
-		Instructor tempInstructor = appDAO.findInstructorById(theId);
+		Instructor tempInstructor = appDAO.findInstructorById(theId); // error because one to many is lazy retive data and when call at row 96 getCourses will be have conncection session db clòosed and throw Excetion
 
 		System.out.println("tempInstructor: " + tempInstructor);
-		System.out.println("the associated instructorDetail only: " + tempInstructor.getInstructorDetail());
-
-	}
-
-	private void createInstructor(AppDAO appDAO) {
-
-		/*
-		// create the instructor
-		Instructor tempInstructor =
-				new Instructor("Chad", "Darby", "darby@luv2code.com");
-
-		// create the instructor detail
-		InstructorDetail tempInstructorDetail =
-				new InstructorDetail(
-						"http://www.luv2code.com/youtube",
-						"Luv 2 code!!!");
-		*/
-
-		// create the instructor
-		Instructor tempInstructor =
-				new Instructor("Madhu", "Patel", "madhu@luv2code.com");
-
-		// create the instructor detail
-		InstructorDetail tempInstructorDetail =
-				new InstructorDetail(
-						"http://www.luv2code.com/youtube",
-						"Guitar");
-
-		// associate the objects
-		tempInstructor.setInstructorDetail(tempInstructorDetail);
-
-		// save the instructor
-		//
-		// NOTE: this will ALSO save the details object
-		// because of CascadeType.ALL
-		//
-		System.out.println("Saving instructor: " + tempInstructor);
-		appDAO.save(tempInstructor);
+		System.out.println("the associated courses: " + tempInstructor.getCourses()); // by defaul relation from one to many is by default at facth type lazy and this will be throw an exception
 
 		System.out.println("Done!");
 	}

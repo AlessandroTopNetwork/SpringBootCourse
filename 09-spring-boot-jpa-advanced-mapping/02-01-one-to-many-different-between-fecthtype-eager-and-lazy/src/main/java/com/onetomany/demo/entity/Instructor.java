@@ -41,8 +41,9 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor",
-               cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+    @OneToMany(mappedBy = "instructor", 
+    			fetch = FetchType.EAGER, // try to fix  failed to lazily initialize a collection of role
+    			cascade = {CascadeType.PERSIST, CascadeType.MERGE,
                           CascadeType.DETACH, CascadeType.REFRESH}) // non cancelliamo il corso in caso di delete dell'insegnate
     private List<Course> courses;
 
