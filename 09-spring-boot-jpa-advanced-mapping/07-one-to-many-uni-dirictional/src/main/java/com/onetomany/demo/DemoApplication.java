@@ -27,7 +27,10 @@ public class DemoApplication {
 
 //			createCourseAndReviews(appDAO);
 			
-			retrieveCoureAndReviews(appDAO);
+//			retrieveCoureAndReviews(appDAO);
+			
+			deleteCourseAndReviews(appDAO);
+			
 		};
 	}
 
@@ -52,6 +55,17 @@ public class DemoApplication {
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
+
+		int theId = 10;
+
+		System.out.println("Deleting course id: " + theId);
+
+		appDAO.deleteCourseById(theId);
+
+		System.out.println("Done!");
+	}
+	
+	private void deleteCourseAndReviews(AppDAO appDAO) {
 
 		int theId = 10;
 
