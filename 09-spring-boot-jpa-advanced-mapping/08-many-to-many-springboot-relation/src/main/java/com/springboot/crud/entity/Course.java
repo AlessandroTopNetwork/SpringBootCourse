@@ -2,6 +2,8 @@ package com.springboot.crud.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,6 +30,7 @@ public class Course {
 	@Column(name = "insegnante_id")
 	private String insegnanteId;
 	
+	@JsonBackReference // to not print into to string this will be triggers recursion
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable( // tab di raccordo
 			name = "course_student",

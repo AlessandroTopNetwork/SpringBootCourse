@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.crud.entity.Course;
 import com.springboot.crud.entity.Student;
+import com.springboot.crud.service.CourseService;
 import com.springboot.crud.service.StudentService;
 
 @RestController
@@ -21,10 +23,15 @@ public class Controller {
 	
 //	@Autowired
 	private StudentService studentService;
+	
+//	@Autowired
+	private CourseService courseService;
+	
 
 	@Autowired
-	public Controller(StudentService studentService) { // superfluo basta auto wired sulla interfaccia
+	public Controller(StudentService studentService, CourseService courseService) { // superfluo basta auto wired sulla interfaccia
 		this.studentService = studentService;
+		this.courseService = courseService;
 	}
 	
 	// get
@@ -64,6 +71,16 @@ public class Controller {
 	public List<Student> deletestudent(@PathVariable long id){
 		studentService.delete(id);
 		return studentService.findAll();
+	}
+	
+	// get one course
+	@GetMapping("/course/{courseId}")
+	public Course getCourse(@PathVariable long courseId) {
+		Course course = courseService.findById(courseId);
+		if(course == null) {
+			throw new RuntimeException("course not found");
+		}
+		return course;
 	}
 
 }
