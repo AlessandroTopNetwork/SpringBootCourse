@@ -14,8 +14,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.ToString;
 
 @Entity
+@ToString
 @Table(name="course")
 public class Course {
 
@@ -97,13 +99,7 @@ public class Course {
         reviews.add(theReview);
     }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                '}';
-    }
+    
 }
 
 

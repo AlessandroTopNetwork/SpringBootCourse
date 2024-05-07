@@ -3,6 +3,8 @@ package com.onetomany.demo.dao;
 import com.onetomany.demo.entity.Course;
 import com.onetomany.demo.entity.Instructor;
 import com.onetomany.demo.entity.InstructorDetail;
+import com.onetomany.demo.entity.Review;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,8 +96,8 @@ public class AppDAOImpl implements AppDAO {
         // create query
         TypedQuery<Instructor> query = entityManager.createQuery(
                                                 "select i from Instructor i "
-                                                    + "JOIN FETCH i.courses "
-                                                    + "JOIN FETCH i.instructorDetail "
+                                                    + "JOIN FETCH i.courses " // name of variable into class Instructor
+                                                    + "JOIN FETCH i.instructorDetail "// name of variable into class Instructor
                                                     + "where i.id = :data", Instructor.class);
         query.setParameter("data", theId);
 
@@ -138,6 +140,19 @@ public class AppDAOImpl implements AppDAO {
     public void save(Course theCourse) {
         entityManager.persist(theCourse);
     }
+
+	@Override
+	public Course findCourseAndReviewsByCourseId(int theIdCourse) {
+        // create query
+        TypedQuery<Course> query = entityManager.createQuery(
+                                                "select c from Course c "
+                                                    + "JOIN FETCH c.reviews "// name oif variable into class course
+                                                    + "where c.id = :data", Course.class);
+        // execute query
+        query.setParameter("data", theIdCourse);
+		
+		return query.getSingleResult();
+	}
 }
 
 

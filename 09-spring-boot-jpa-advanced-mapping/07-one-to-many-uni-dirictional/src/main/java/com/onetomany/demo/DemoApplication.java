@@ -25,7 +25,9 @@ public class DemoApplication {
 
 		return runner -> {
 
-			createCourseAndReviews(appDAO);
+//			createCourseAndReviews(appDAO);
+			
+			retrieveCoureAndReviews(appDAO);
 		};
 	}
 
@@ -262,6 +264,19 @@ public class DemoApplication {
 
 		System.out.println("Done!");
 	}
+	
+	public void retrieveCoureAndReviews(AppDAO appDAO) {
+		
+		int id = 10;
+		
+		System.out.println("Start retrieveCoureAndReviews for id : " + id);
+		
+		System.out.println(appDAO.findCourseAndReviewsByCourseId(id));;
+		
+		System.out.println("Done!");
+		
+	}
+	
 }
 
 
