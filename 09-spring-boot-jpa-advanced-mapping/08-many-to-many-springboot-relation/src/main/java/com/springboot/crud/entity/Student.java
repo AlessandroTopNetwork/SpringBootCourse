@@ -82,7 +82,7 @@ public class Student {
 		this.listCourse = listCourse;
 	}
 	
-	public void addCourse(Course course) {
+	public void addCourse(Course course) { // add course to student and set stuent to course
 		listCourse.add(course);
 		if(CollectionUtils.isEmpty(course.getListStudent())) {
 			course.setListStudent(new ArrayList<>());

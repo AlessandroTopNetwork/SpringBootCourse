@@ -1,11 +1,10 @@
 package com.springboot.crud.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import com.springboot.crud.dao.StudentJPARepository;
 import com.springboot.crud.entity.Course;
@@ -20,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
 	private StudentJPARepository studentJpaRepository;
 
 	@Autowired
-	public StudentServiceImpl(StudentJPARepository studentDAO) {// superfluo basta auto wired sulla iterfaccia
+	public StudentServiceImpl(StudentJPARepository studentDAO) {// superfluo basta autowired sulla interfaccia
 		this.studentJpaRepository = studentDAO;
 	}
 
@@ -31,7 +30,13 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student findById(Long id) {
-		return studentJpaRepository.findById(id).isPresent() ? studentJpaRepository.findById(id).get() : null;
+		Optional<Student> s = studentJpaRepository.findById(id);
+		
+		if(s.isPresent()) {
+			return s.get();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -40,8 +45,8 @@ public class StudentServiceImpl implements StudentService {
 		
 		if(null != student.getListCourse()) {
 			for(Course c : student.getListCourse()) {
-				student.addCourse(c);
-				c.addStudent(student);
+				student.addCourse(c); // add course to student
+				c.addStudent(student); // set student to course
 			}
 		}
 		
