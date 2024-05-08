@@ -25,9 +25,9 @@ public class DemoApplication {
 
 //			 createCourseAndStudents(serviceMain);
 
-			 findCourseAndStudents(serviceMain);
+//			 findCourseAndStudents(serviceMain);
 
-//			 findStudentAndCourses(serviceMain);
+			 findStudentAndCourses(serviceMain);
 
 //			 addMoreCoursesForStudent(serviceMain);
 
@@ -80,9 +80,9 @@ public class DemoApplication {
 
 		System.out.println("Loaded student: " + tempStudent);
 		
-		List<Course> listCourse = serviceMain.getServiceCourse().getListCourseByIDStudent(theId);
+//		List<Course> listCourse = serviceMain.getServiceCourse().getListCourseByIDStudent(theId);
 		
-		System.out.println("Courses: " + listCourse);
+		System.out.println("Courses: " + tempStudent.getCourses());
 
 		System.out.println("Done!");
 	}
@@ -94,9 +94,9 @@ public class DemoApplication {
 
 		System.out.println("Loaded course: " + tempCourse);
 		
-		List<Student> listStudent = serviceMain.getServiceStudent().getListStudentByIDCourse(theId);
+//		List<Student> listStudent = serviceMain.getServiceStudent().getListStudentByIDCourse(theId); // lazy many to many
 		
-		System.out.println("Students: " + listStudent);
+		System.out.println("Students: " + tempCourse.getStudents());
 
 		System.out.println("Done!");
 	}
