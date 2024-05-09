@@ -53,4 +53,12 @@ public class MyDemoLoggingAspect {
 //		System.out.println("i run After method : public void addAccount()\n");
 //	}
 	
+	// generic method and return and class but spefict args
+	
+	@Before("execution( * add*(com.aop.demo.dto.AccountDto))") // not is Before junit // into argusment before execution(singnature of method target)
+	public void beforeAddAccountAdviceSpeficArgsAccoutnDto() { // before is clled only on called method addAccount of Interface AccountDAO
+		System.out.println("\n=======> Executing @Before advice on addAccount(with one args spefic Account dto)");
+		System.out.println("i run before method : public void addAccount(whit spefict Account dto argumets)\n");
+	}
+	
 }

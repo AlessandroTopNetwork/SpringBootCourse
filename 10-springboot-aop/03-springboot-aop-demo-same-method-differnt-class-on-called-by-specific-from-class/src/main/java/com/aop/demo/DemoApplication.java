@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.aop.demo.dao.AccountDAO;
 import com.aop.demo.dao.MembershipDAO;
+import com.aop.demo.dto.AccountDto;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -37,6 +38,8 @@ public class DemoApplication {
 		membershipDao.addAccount(null);
 		
 		membershipDao.addAccount(null, null);
+		
+		accountDao.addAccount(new AccountDto());
 	}
 
 }
