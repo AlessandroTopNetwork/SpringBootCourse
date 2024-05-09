@@ -13,6 +13,7 @@ public class MyDemoLoggingAspect {
 	
 	// let's start an @Before advice
 	
+	// speficit method of interface
 	@Before("execution(public void com.aop.demo.dao.AccountDAO.addAccount())") // not is Before junit // into argusment before execution(singnature of method target)
 	public void beforeAddAccountAdvice() { // before is clled only on called method addAccount of Interface AccountDAO
 		System.out.println("\n=======> Executing @Before advice on addAccount()");
@@ -20,8 +21,20 @@ public class MyDemoLoggingAspect {
 	}
 	
 	@After("execution(public void addAccount())")
-	public void afterAddAccountAdvice() {
+	public void afterAddAccountAdviceWithoutArgs() {
 		System.out.println("\n=======> Executing @After advice on addAccount()");
+		System.out.println("i run After method : public void addAccount()\n");
+	}
+	
+	@After("execution(public void addAccount(*))")
+	public void afterAddAccountAdviceWithOneArgsAny() {
+		System.out.println("\n=======> Executing @After advice on addAccount(one args)");
+		System.out.println("i run After method : public void addAccount()\n");
+	}
+	
+	@After("execution(public void addAccount(..))")
+	public void afterAddAccountAdviceWithMoreArgsAny() {
+		System.out.println("\n=======> Executing @After advice on addAccount(more then one args)");
 		System.out.println("i run After method : public void addAccount()\n");
 	}
 	

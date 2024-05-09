@@ -12,4 +12,18 @@ public class MembershipDAOImpl implements MembershipDAO{
 		
 	}
 
+	@Override
+	public void addAccount(String a) {
+
+		System.out.println(getClass() + "hello add account into MeberShip class whot one argusments");
+		
+	}
+
+	@Override
+	public void addAccount(String a, String b) {
+
+		System.out.println(getClass() + "hello ass account into mebership class whit more argumemts");
+		
+	}
+
 }

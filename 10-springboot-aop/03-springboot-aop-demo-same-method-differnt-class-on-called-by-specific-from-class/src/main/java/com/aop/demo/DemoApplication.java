@@ -33,6 +33,10 @@ public class DemoApplication {
 		System.err.println("\n call merbership method \n");
 		
 		membershipDao.addAccount();
+		
+		membershipDao.addAccount(null);
+		
+		membershipDao.addAccount(null, null);
 	}
 
 }
