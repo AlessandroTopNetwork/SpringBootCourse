@@ -30,11 +30,11 @@ public class DemoApplication {
 		theAccountDAO.doWork();
 
 		// call the accountdao getter/setter methods
-//		theAccountDAO.setName("foobar");
-//		theAccountDAO.setServiceCode("silver");
-//
-//		String name = theAccountDAO.getName();
-//		String code = theAccountDAO.getServiceCode();
+		theAccountDAO.setName("foobar");
+		theAccountDAO.setServiceCode("silver");
+
+		String name = theAccountDAO.getName();
+		String code = theAccountDAO.getServiceCode();
 
 		// call the membership business method
 		theMembershipDAO.addSillyMember();
