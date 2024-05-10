@@ -1,6 +1,7 @@
 package com.aop.demo.aspect;
 
-import com.aop.demo.Account;
+import java.util.List;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,7 +10,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import com.aop.demo.Account;
 
 @Aspect
 @Component
@@ -21,7 +22,7 @@ public class MyDemoLoggingAspect {
     @AfterReturning(
             pointcut = "execution(* com.aop.demo.dao.AccountDAO.findAccounts(..))",
             returning = "result")
-    public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Object> result) { // bisogna asapere il tipo di ritona specifico del metodo oppure passando object si poterbbe stampare lo stesso il valore degli oggetti
+    public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) { // bisogna asapere il tipo di ritona specifico del metodo oppure passando object si poterbbe stampare lo stesso il valore degli oggetti
 
         // print out which method we are advising on
         String method = theJoinPoint.getSignature().toShortString();
@@ -33,9 +34,11 @@ public class MyDemoLoggingAspect {
         // let's post-process the data ... let's modify it :-)
 
         // convert the account names to uppercase
-//        convertAccountNamesToUpperCase(result);
-//
-//        System.out.println("\n=====>>> result is: " + result);
+        convertAccountNamesToUpperCase(result);
+        
+        result.add(new Account());
+
+        System.out.println("\n=====>>> result is: " + result);
 
     }
 
