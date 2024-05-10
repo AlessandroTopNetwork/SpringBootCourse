@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Order(3)
-public class MyApiAnalyticsAspect {
+public class MyApiAnalyticsAspect { // third method call before target method
 
     @Before("com.aop.demo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()")
     public void performApiAnalytics() {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Order(2)
-public class MyDemoLoggingAspect {
+public class MyDemoLoggingAspect { // second methid call @Before target method
 
     @Before("com.aop.demo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice() {
