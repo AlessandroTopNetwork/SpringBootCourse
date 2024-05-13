@@ -37,7 +37,9 @@ public class MyDemoLoggingAspect {
         } catch (Exception e) {
         	System.err.println("the execution of method " + method + "has throw exception :" + e );
        
-        	result = "the execution of method " + method + "has throw exception :" + e;
+//        	result = "the execution of method " + method + "has throw exception :" + e;
+        	
+        	throw e;
         }
 
         // code after execution target method
